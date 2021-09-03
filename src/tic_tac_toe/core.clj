@@ -1,6 +1,9 @@
 (ns tic-tac-toe.core
   (:require [io.pedestal.http :as http]
-            [io.pedestal.http.route :as route]))
+            [io.pedestal.http.route :as route]
+            [io.pedestal.http.body-params :as body-params]))
+
+
 
 (defn new-board []
    [["","",""],
@@ -11,12 +14,30 @@
   {:board (new-board)
    :state :ongoing})
 
-(defn get-game [context]
-  {:body (new-game)
+(defonce current-game (atom (new-game)))
+
+
+(defn get-game [_context]
+  {:body @current-game
    :status 200})
 
+(defn reset-game! [context]
+  (reset! current-game (new-game))
+  (get-game context))
+
+(defn change-game [game player position]
+  {:board (assoc-in (:board game) position player)
+   :state :ongoing})
 
 
+(defn update-board! [player position]
+  (swap! current-game change-game player position))
+
+
+(defn make-move! [context]
+  (let [{:keys [player position]} (:json-params context)]
+    (update-board! player position))
+  (get-game context))
 
 
 
@@ -27,7 +48,9 @@
 
 (def routes
   (route/expand-routes
-    #{["/game" :get [http/json-body get-game] :route-name :get-game]}))
+    #{["/game" :get [http/json-body get-game] :route-name :get-game]
+      ["/game" :delete [http/json-body reset-game!] :route-name :reset-game]
+      ["/game/move" :post [(body-params/body-params) http/json-body make-move!] :route-name :make-move]}))
 
 
 (def service-map
