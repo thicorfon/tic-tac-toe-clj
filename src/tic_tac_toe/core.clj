@@ -5,16 +5,16 @@
 
 
 
-(defn new-board []
+(def new-board
    [["","",""],
     ["","",""],
     ["","",""]])
 
-(defn new-game []
-  {:board (new-board)
+(def new-game
+  {:board new-board
    :state :ongoing})
 
-(defonce current-game (atom (new-game)))
+(defonce current-game (atom new-game))
 
 
 (defn get-game [_context]
@@ -25,25 +25,27 @@
   (reset! current-game (new-game))
   (get-game context))
 
-(defn change-game [game player position]
+(defn change-position [game player position]
   {:board (assoc-in (:board game) position player)
    :state :ongoing})
 
+(defn check-winner [board]
+  "X")
+
+(defn update-game-state [game]
+  (let [{:keys [board]} game]
+    (if-let [winner (check-winner board)] (merge game {:state :finished :winner winner}) game)))
+
 
 (defn update-board! [player position]
-  (swap! current-game change-game player position))
+  (swap! current-game change-position player position)
+  (swap! current-game update-game-state))
 
 
 (defn make-move! [context]
   (let [{:keys [player position]} (:json-params context)]
     (update-board! player position))
   (get-game context))
-
-
-
-
-
-
 
 
 (def routes
