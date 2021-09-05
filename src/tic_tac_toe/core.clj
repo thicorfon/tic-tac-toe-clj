@@ -3,7 +3,7 @@
             [io.pedestal.http.route :as route]
             [io.pedestal.http.body-params :as body-params]))
 
-; valid player, alternating players, cant play where it has already been played, pretty print
+;; valid player, alternating players, cant play where it has already been played, pretty print
 
 (def new-board
   [["" "" ""]
@@ -42,9 +42,11 @@
   {:board (assoc-in (:board game) position player)
    :state :ongoing})
 
+;; pure logic
 (defn get-marker [board position]
-  (nth (nth board (nth position 0)) (nth position 1)))
+  (get-in board position))
 
+;; pure logic
 (defn get-markers [board positions]
   (map (partial get-marker board) positions))
 
