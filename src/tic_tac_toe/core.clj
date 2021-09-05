@@ -51,13 +51,16 @@
   (map (partial get-marker board) positions))
 
 ;; pure logic
+(defn check-winner-for-position [board winning-position]
+  (let [markers (get-markers board winning-position)]
+    (cond (= markers ["X" "X" "X"]) "X"
+          (= markers ["O" "O" "O"]) "O"
+          :else nil)))
+
+
+;; pure logic
 (defn check-winner [board]
-  (->> (map (partial get-markers board) winning-positions)
-       (map frequencies)
-       (map #(cond
-               (>= (get % "X" 0) 3) "X"
-               (>= (get % "O" 0) 3) "O"
-               :else nil))
+  (->> (map (partial check-winner-for-position board) winning-positions)
        (some #(or % nil))))
 
 

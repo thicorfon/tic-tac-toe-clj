@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6befc63-4d44-4a8d-a5c5-5c8ae312fc88" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tic_tac_toe/core.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/tic_tac_toe/core.clj" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,17 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tic_tac_toe/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="1676" column="10" selection-start-line="1676" selection-start-column="10" selection-end-line="1676" selection-end-column="10" />
+            <state relative-caret-position="453">
+              <caret line="56" column="39" lean-forward="true" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -145,11 +137,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/thicorfon/Code/nu/tic-tac-toe/src/tic_tac_toe/core.clj" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1630876078316" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar:///Users/thicorfon/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1630877278653" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
-  <component name="ReplState" timestamp="1630876007606">{:repl-history {:ide [], :local [{:command &quot;(routes)&quot;, :offset 7, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;routes&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-game)&quot;, :offset 9, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(new-game)&quot;, :offset 10, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-game nil)&quot;, :offset 13, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(start)&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(start-dev\n  )&quot;, :offset 11, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(current-game)&quot;, :offset 13, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(@current-game)&quot;, :offset 14, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;@current-game&quot;, :offset 1, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;\n (restart)&quot;, :offset 0, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(reset! current-game (new-game))&quot;, :offset 32, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(reset! current-game \&quot;banana\&quot;)&quot;, :offset 30, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(restart\n  )&quot;, :offset 11, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get 0 [1,2,3\n        ])&quot;, :offset 22, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get [1,2,3] 0\n     )\n        &quot;, :offset 20, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(nth [1,2,3] 0)\n     \n        &quot;, :offset 4, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(update 0 [1,2,3\n           ])&quot;, :offset 28, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(assoc-in (new-board) [0 1] \&quot;X\&quot;)\n           &quot;, :offset 30, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(assoc-in (new-bo))&quot;, :offset 19} {:command &quot;(restart)\n  &quot;, :offset 12, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def a {:a \&quot;a\&quot;})&quot;, :offset 16, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(assoc-in a {:board \&quot;b\&quot;})&quot;, :offset 12, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(update-game-state new-game)&quot;, :offset 27, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(update-game-state new-game\n                   )&quot;, :offset 47, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def teste [[\&quot;X\&quot;, \&quot;\&quot;, \&quot;O\&quot;],\n            [\&quot;\&quot;, \&quot;\&quot;, \&quot;\&quot;],\n            [\&quot;\&quot;, \&quot;\&quot;, \&quot;X\&quot;]])&quot;, :offset 81, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(nth teste 0)&quot;, :offset 12, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(nth (nth teste 0) 1)&quot;, :offset 20, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(teste)&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-markers #{[1,2] [2,0]} teste)&quot;, :offset 33, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-marker [0,1] teste)&quot;, :offset 23, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-marker [0,2] teste)&quot;, :offset 16, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-markers #{[0,1] [0,2]} teste)&quot;, :offset 33, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def x 1)&quot;, :offset 8, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def x 2)&quot;, :offset 8, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def x [1,2,3])&quot;, :offset 15, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(conj x 6)&quot;, :offset 9, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(+ 1 1)&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(+ (* 3 2) 1)&quot;, :offset 12, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;x&quot;, :offset 1, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(map inc x)&quot;, :offset 10, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(inc 1)&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(map #(+ % 1) x)&quot;, :offset 16, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-markers #{[0,1] [1,1]} teste)&quot;, :offset 33, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;teste&quot;, :offset 5, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-markers #{[0,0] [1,1]} teste)&quot;, :offset 19, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(restart)&quot;, :offset 8, :ns &quot;tic-tac-toe.core&quot;}], :remote []}}</component>
+  <component name="ReplState" timestamp="1630877278648">{:repl-history {:ide [], :local [{:command &quot;(routes)&quot;, :offset 7, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;routes&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-game)&quot;, :offset 9, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(new-game)&quot;, :offset 10, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-game nil)&quot;, :offset 13, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(start)&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(start-dev\n  )&quot;, :offset 11, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(current-game)&quot;, :offset 13, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(@current-game)&quot;, :offset 14, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;@current-game&quot;, :offset 1, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;\n (restart)&quot;, :offset 0, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(reset! current-game (new-game))&quot;, :offset 32, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(reset! current-game \&quot;banana\&quot;)&quot;, :offset 30, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(restart\n  )&quot;, :offset 11, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get 0 [1,2,3\n        ])&quot;, :offset 22, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get [1,2,3] 0\n     )\n        &quot;, :offset 20, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(nth [1,2,3] 0)\n     \n        &quot;, :offset 4, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(update 0 [1,2,3\n           ])&quot;, :offset 28, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(assoc-in (new-board) [0 1] \&quot;X\&quot;)\n           &quot;, :offset 30, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(assoc-in (new-bo))&quot;, :offset 19} {:command &quot;(restart)\n  &quot;, :offset 12, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def a {:a \&quot;a\&quot;})&quot;, :offset 16, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(assoc-in a {:board \&quot;b\&quot;})&quot;, :offset 12, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(update-game-state new-game)&quot;, :offset 27, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(update-game-state new-game\n                   )&quot;, :offset 47, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def teste [[\&quot;X\&quot;, \&quot;\&quot;, \&quot;O\&quot;],\n            [\&quot;\&quot;, \&quot;\&quot;, \&quot;\&quot;],\n            [\&quot;\&quot;, \&quot;\&quot;, \&quot;X\&quot;]])&quot;, :offset 81, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(nth teste 0)&quot;, :offset 12, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(nth (nth teste 0) 1)&quot;, :offset 20, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(teste)&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-markers #{[1,2] [2,0]} teste)&quot;, :offset 33, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-marker [0,1] teste)&quot;, :offset 23, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-marker [0,2] teste)&quot;, :offset 16, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-markers #{[0,1] [0,2]} teste)&quot;, :offset 33, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def x 1)&quot;, :offset 8, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def x 2)&quot;, :offset 8, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(def x [1,2,3])&quot;, :offset 15, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(conj x 6)&quot;, :offset 9, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(+ 1 1)&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(+ (* 3 2) 1)&quot;, :offset 12, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;x&quot;, :offset 1, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(map inc x)&quot;, :offset 10, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(inc 1)&quot;, :offset 6, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(map #(+ % 1) x)&quot;, :offset 16, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-markers #{[0,1] [1,1]} teste)&quot;, :offset 33, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;teste&quot;, :offset 5, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(get-markers #{[0,0] [1,1]} teste)&quot;, :offset 19, :ns &quot;tic-tac-toe.core&quot;} {:command &quot;(restart)&quot;, :offset 8, :ns &quot;tic-tac-toe.core&quot;}], :remote []}}</component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -224,7 +216,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -234,7 +225,7 @@
       <window_info content_ui="combo" id="Project" order="0" weight="0.2374798" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.24671532" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.24671532" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -244,7 +235,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="REPL" sideWeight="0.50097847" side_tool="true" visible="true" weight="0.44022617" />
+      <window_info active="true" anchor="right" id="REPL" sideWeight="0.50097847" side_tool="true" visible="true" weight="0.44022617" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Leiningen" />
       <window_info anchor="right" id="Capture Analysis" />
@@ -282,15 +273,15 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="1676" column="10" selection-start-line="1676" selection-start-column="10" selection-end-line="1676" selection-end-column="10" />
+        <state relative-caret-position="163">
+          <caret line="6141" column="6" selection-start-line="6141" selection-start-column="6" selection-end-line="6141" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tic_tac_toe/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="453">
+          <caret line="56" column="39" lean-forward="true" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
         </state>
       </provider>
     </entry>
