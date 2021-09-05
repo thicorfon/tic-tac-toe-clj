@@ -24,7 +24,7 @@
                          #{[0 0] [1 1] [2 2]}
                          #{[0 2] [1 1] [2 0]}})
 
-(def players #{"X", "O"})
+(def players #{"X" "O"})
 
 (defonce current-game (atom new-game))
 
@@ -60,12 +60,19 @@
 
 
 ;; pure logic
+(defn full-board? [board]
+  (not (some #{""} (flatten board))))
+
+
+;; pure logic
 (defn update-game-state [game]
   (let [{:keys [board]} game]
     (if-let [winner (check-winner board)]
       (merge game {:state  :finished
                    :winner winner})
-      game)))
+      (if (full-board? board)
+        (merge game {:state :finished :winner "draw"})
+        game))))
 
 
 (defn update-board! [player position]
