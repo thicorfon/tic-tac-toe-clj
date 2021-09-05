@@ -3,7 +3,7 @@
             [io.pedestal.http.route :as route]
             [io.pedestal.http.body-params :as body-params]))
 
-
+; valid player, alternating players, cant play where it has already been played, pretty print
 
 (def new-board
   [["" "" ""]
