@@ -6,35 +6,65 @@
 
 
 (def new-board
-   [["","",""],
-    ["","",""],
-    ["","",""]])
+  [["" "" ""]
+   ["" "" ""]
+   ["" "" ""]])
+
 
 (def new-game
   {:board new-board
    :state :ongoing})
 
+(def winning-positions #{#{[0 0] [0 1] [0 2]}
+                         #{[1 0] [1 1] [1 2]}
+                         #{[2 0] [2 1] [2 2]}
+                         #{[0 1] [1 1] [2 1]}
+                         #{[0 2] [1 2] [2 2]}
+                         #{[0 0] [1 1] [2 2]}
+                         #{[0 2] [1 1] [2 0]}})
+
+(def players #{"X", "O"})
+
 (defonce current-game (atom new-game))
 
 
 (defn get-game [_context]
-  {:body @current-game
+  {:body   @current-game
    :status 200})
 
 (defn reset-game! [context]
-  (reset! current-game (new-game))
+  (reset! current-game new-game)
   (get-game context))
 
+;; pure logic
 (defn change-position [game player position]
   {:board (assoc-in (:board game) position player)
    :state :ongoing})
 
-(defn check-winner [board]
-  "X")
+(defn get-marker [board position]
+  (nth (nth board (nth position 0)) (nth position 1)))
 
+(defn get-markers [board positions]
+  (map (partial get-marker board) positions))
+
+;; pure logic
+(defn check-winner [board]
+  (->> (map (partial get-markers board) winning-positions)
+       (map frequencies)
+       (map #(cond
+               (>= (get % "X" 0) 3) "X"
+               (>= (get % "O" 0) 3) "O"
+               :else nil))
+       (some #(or % nil))))
+
+
+;; pure logic
 (defn update-game-state [game]
   (let [{:keys [board]} game]
-    (if-let [winner (check-winner board)] (merge game {:state :finished :winner winner}) game)))
+    (if-let [winner (check-winner board)]
+      (merge game {:state  :finished
+                   :winner winner})
+      game)))
 
 
 (defn update-board! [player position]
@@ -71,7 +101,7 @@
   (reset! server
           (http/start (http/create-server
                         (assoc service-map
-                           ::http/join? false)))))
+                          ::http/join? false)))))
 
 (defn stop-dev []
   (http/stop @server))
