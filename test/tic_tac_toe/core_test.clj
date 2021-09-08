@@ -2,6 +2,22 @@
   (:require [clojure.test :refer :all]
             [tic-tac-toe.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(def base-board [["X" "" ""] ["O" "X" "O"] ["" "" ""]])
+
+(def base-game {:board base-board
+                :state :ongoing})
+
+(deftest change-position-test
+  (testing "Change valid position of board without changing state"
+    (is (= (change-position base-game "X" [0 1])
+           {:board [["X" "X" ""] ["O" "X" "O"] ["" "" ""]]
+            :state :ongoing}))
+    (is (= (change-position base-game "O" [1 1])
+           {:board [["X" "" ""] ["O" "O" "O"] ["" "" ""]]
+            :state :ongoing})))
+  (testing "Changing out of bound position returns original game"
+    (is (= (change-position base-game "X" [3 1])
+           base-game))))
+
+
+

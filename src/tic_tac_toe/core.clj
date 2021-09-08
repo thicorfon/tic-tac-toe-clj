@@ -38,17 +38,21 @@
   (get-game context))
 
 ;; pure logic
-(defn change-position [game player position]
-  {:board (assoc-in (:board game) position player)
-   :state :ongoing})
-
-;; pure logic
 (defn get-marker [board position]
   (get-in board position))
 
 ;; pure logic
 (defn get-markers [board positions]
   (map (partial get-marker board) positions))
+
+;; pure logic
+(defn change-position [game player position]
+  (let [{:keys [board state]} game]
+    (if (get-marker board position)
+      {:board (assoc-in board position player)
+       :state state}
+      game)))
+
 
 ;; pure logic
 (defn check-winner-for-position [board winning-position]
