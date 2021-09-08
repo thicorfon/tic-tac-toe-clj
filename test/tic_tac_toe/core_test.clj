@@ -7,6 +7,19 @@
 (def base-game {:board base-board
                 :state :ongoing})
 
+(deftest get-marker-test
+  (testing "Get marker in valid position"
+    (is (= (get-marker base-board [0 0])
+           "X"))
+    (is (= (get-marker base-board [0 1])
+           ""))
+    (is (= (get-marker base-board [1 0])
+           "O")))
+  (testing "Get marker in invalid position returns nil"
+    (is (= (get-marker base-board [3 3])
+           nil))))
+
+
 (deftest change-position-test
   (testing "Change valid position of board without changing state"
     (is (= (change-position base-game "X" [0 1])
