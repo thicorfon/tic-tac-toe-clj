@@ -8,6 +8,8 @@
 
 (def board-O-winner [["X" "" "O"] ["O" "X" "O"] ["" "" "O"]])
 
+(def full-board [["X" "X" "O"] ["O" "O" "O"] ["X" "X" "X"]])
+
 (def base-game {:board base-board
                 :state :ongoing})
 
@@ -64,7 +66,14 @@
     (is (= (check-winner base-board winning-positions)
            nil))))
 
-(deftest full-board?-test)
+(deftest full-board?-test
+  (testing "Full board returns true"
+    (is (= (full-board? full-board)
+           true)))
+  (testing "Not full board returns false"
+    (is (= (full-board? full-board)
+           true))))
+
 
 (deftest update-game-state-test)
 
