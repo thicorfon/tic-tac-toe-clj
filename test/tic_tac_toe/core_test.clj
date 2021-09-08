@@ -2,13 +2,25 @@
   (:require [clojure.test :refer :all]
             [tic-tac-toe.core :refer :all]))
 
-(def base-board [["X" "" ""] ["O" "X" "O"] ["" "" ""]])
+(def base-board [["X" "" ""]
+                 ["O" "X" "O"]
+                 ["" "" ""]])
 
-(def board-X-winner [["X" "" ""] ["O" "X" "O"] ["" "" "X"]])
+(def board-X-winner [["X" "" ""]
+                     ["O" "X" "O"]
+                     ["" "" "X"]])
 
-(def board-O-winner [["X" "" "O"] ["O" "X" "O"] ["" "" "O"]])
+(def board-O-winner [["X" "" "O"]
+                     ["O" "X" "O"]
+                     ["" "" "O"]])
 
-(def full-board [["X" "X" "O"] ["O" "O" "O"] ["X" "X" "X"]])
+(def full-board-X-winner [["X" "X" "O"]
+                          ["O" "X" "O"]
+                          ["O" "O" "X"]])
+
+(def full-board [["X" "O" "X"]
+                 ["O" "O" "X"]
+                 ["X" "X" "O"]])
 
 (def base-game {:board base-board
                 :state :ongoing})
@@ -34,10 +46,14 @@
 (deftest change-position-test
   (testing "Change valid position of board without changing state"
     (is (= (change-position base-game "X" [0 1])
-           {:board [["X" "X" ""] ["O" "X" "O"] ["" "" ""]]
+           {:board [["X" "X" ""]
+                    ["O" "X" "O"]
+                    ["" "" ""]]
             :state :ongoing}))
     (is (= (change-position base-game "O" [1 1])
-           {:board [["X" "" ""] ["O" "O" "O"] ["" "" ""]]
+           {:board [["X" "" ""]
+                    ["O" "O" "O"]
+                    ["" "" ""]]
             :state :ongoing})))
   (testing "Changing out of bound position returns original game"
     (is (= (change-position base-game "X" [3 1])
@@ -75,7 +91,33 @@
            true))))
 
 
-(deftest update-game-state-test)
+(deftest update-game-state-test
+  (testing "Board without winner and not full returns ongoing game"
+    (is (= (update-game-state base-game)
+           base-game)))
+  (testing "Board with winner returns game with winner and status"
+    (is (= (update-game-state {:board board-O-winner
+                               :state :ongoing})
+           {:board board-O-winner
+            :state :finished
+            :winner "O"}))
+    (is (= (update-game-state {:board full-board-X-winner
+                               :state :ongoing})
+           {:board full-board-X-winner
+            :state :finished
+            :winner "X"})))
+  (testing "Full board without winner returns game with draw as a winner and status"
+    (is (= (update-game-state {:board full-board
+                               :state :ongoing})
+           {:board full-board
+            :state :finished
+            :winner "draw"}))))
+
+
+
+
+
+
 
 
 
