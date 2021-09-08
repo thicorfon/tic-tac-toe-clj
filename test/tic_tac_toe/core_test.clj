@@ -4,6 +4,10 @@
 
 (def base-board [["X" "" ""] ["O" "X" "O"] ["" "" ""]])
 
+(def board-X-winner [["X" "" ""] ["O" "X" "O"] ["" "" "X"]])
+
+(def board-O-winner [["X" "" "O"] ["O" "X" "O"] ["" "" "O"]])
+
 (def base-game {:board base-board
                 :state :ongoing})
 
@@ -38,6 +42,23 @@
            base-game))
     (is (= (change-position base-game "O" [1 3])
            base-game))))
+
+(deftest check-winner-for-position-test
+  (testing "If the position has a winner, return the winner"
+    (is (= (check-winner-for-position board-X-winner [[0 0] [1 1] [2 2]])
+         "X"))
+    (is (= (check-winner-for-position board-O-winner [[0 2] [1 2] [2 2]])
+         "O")))
+  (testing "If the position has no winner, returns nil"
+    (is (= (check-winner-for-position base-board [[0 0] [0 1] [0 2]])
+         nil))))
+
+
+(deftest check-winner-test)
+
+(deftest full-board?-test)
+
+(deftest update-game-state-test)
 
 
 
