@@ -17,6 +17,8 @@
             :state :ongoing})))
   (testing "Changing out of bound position returns original game"
     (is (= (change-position base-game "X" [3 1])
+           base-game))
+    (is (= (change-position base-game "O" [1 3])
            base-game))))
 
 
