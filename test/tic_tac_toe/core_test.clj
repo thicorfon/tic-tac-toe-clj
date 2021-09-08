@@ -19,6 +19,11 @@
     (is (= (get-marker base-board [3 3])
            nil))))
 
+(deftest get-markers-test
+  (testing "Get markers from list of positions"
+    (is (= (get-markers base-board [[0 0] [0 1] [3 3]])
+           ["X" "" nil]))))
+
 
 (deftest change-position-test
   (testing "Change valid position of board without changing state"
