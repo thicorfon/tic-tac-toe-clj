@@ -63,7 +63,7 @@
 
 
 ;; pure logic
-(defn check-winner [board]
+(defn check-winner [board winning-positions]
   (->> (map (partial check-winner-for-position board) winning-positions)
        (some #(or % nil))))
 
@@ -76,7 +76,7 @@
 ;; pure logic
 (defn update-game-state [game]
   (let [{:keys [board]} game]
-    (if-let [winner (check-winner board)]
+    (if-let [winner (check-winner board winning-positions)]
       (merge game {:state  :finished
                    :winner winner})
       (if (full-board? board)

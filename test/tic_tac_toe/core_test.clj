@@ -54,7 +54,15 @@
          nil))))
 
 
-(deftest check-winner-test)
+(deftest check-winner-test
+  (testing "Board with winning position returns winner"
+    (is (= (check-winner board-X-winner winning-positions)
+           "X"))
+    (is (= (check-winner board-O-winner winning-positions)
+           "O")))
+  (testing "Board with no winning positions returns nil as winner"
+    (is (= (check-winner base-board winning-positions)
+           nil))))
 
 (deftest full-board?-test)
 
