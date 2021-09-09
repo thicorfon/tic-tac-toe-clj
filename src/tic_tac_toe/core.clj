@@ -3,7 +3,7 @@
             [io.pedestal.http.route :as route]
             [io.pedestal.http.body-params :as body-params]))
 
-;; valid player, alternating players, cant play where it has already been played, pretty print
+;; valid player, alternating players, pretty print
 
 (def new-board
   [["" "" ""]
@@ -48,10 +48,13 @@
 ;; pure logic
 (defn change-position [game player position]
   (let [{:keys [board state]} game]
-    (if (get-marker board position)
-      {:board (assoc-in board position player)
-       :state state}
-      game)))
+    (case (get-marker board position)
+      "" {:board (assoc-in board position player)
+          :state state}
+      nil (throw (Exception. "Out of bounds position"))
+      (throw (Exception. "Already filled position")))))
+
+
 
 
 ;; pure logic
@@ -91,8 +94,13 @@
 
 (defn make-move! [context]
   (let [{:keys [player position]} (:json-params context)]
-    (update-board! player position))
-  (get-game context))
+    (try
+      (update-board! player position)
+      (get-game context)
+      (catch Exception e
+        {:body   {:error-message (.getMessage e)}
+         :status 400}))))
+
 
 
 (def routes

@@ -44,22 +44,22 @@
 
 
 (deftest change-position-test
-  (testing "Change valid position of board without changing state"
+  (testing "Change empty position of board without changing state"
     (is (= (change-position base-game "X" [0 1])
            {:board [["X" "X" ""]
                     ["O" "X" "O"]
                     ["" "" ""]]
-            :state :ongoing}))
-    (is (= (change-position base-game "O" [1 1])
-           {:board [["X" "" ""]
-                    ["O" "O" "O"]
-                    ["" "" ""]]
             :state :ongoing})))
-  (testing "Changing out of bound position returns original game"
-    (is (= (change-position base-game "X" [3 1])
-           base-game))
-    (is (= (change-position base-game "O" [1 3])
-           base-game))))
+  (testing "Change already filled position of board throws exception"
+    (is (thrown-with-msg? Exception #"Already filled position"
+                          (change-position base-game "O" [1 1]))))
+
+
+  (testing "Changing out of bound position throws exception"
+    (is (thrown-with-msg? Exception #"Out of bounds position"
+                          (change-position base-game "X" [3 1])))
+    (is (thrown-with-msg? Exception #"Out of bounds position"
+                          (change-position base-game "O" [1 3])))))
 
 (deftest check-winner-for-position-test
   (testing "If the position has a winner, return the winner"
