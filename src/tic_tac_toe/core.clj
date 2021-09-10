@@ -3,7 +3,6 @@
             [io.pedestal.http.route :as route]
             [io.pedestal.http.body-params :as body-params]))
 
-;; valid player, alternating players, pretty print
 
 (def new-board
   [["" "" ""]
@@ -13,7 +12,8 @@
 
 (def new-game
   {:board new-board
-   :state :ongoing})
+   :state :ongoing
+   :new-player "X"})
 
 (def winning-positions #{[[0 0] [0 1] [0 2]]
                          [[1 0] [1 1] [1 2]]
@@ -23,8 +23,6 @@
                          [[0 2] [1 2] [2 2]]
                          [[0 0] [1 1] [2 2]]
                          [[0 2] [1 1] [2 0]]})
-
-(def players #{"X" "O"})
 
 (defonce current-game (atom new-game))
 
@@ -47,15 +45,13 @@
 
 ;; pure logic
 (defn change-position [game player position]
-  (let [{:keys [board state]} game]
+  (let [{:keys [board next-player]} game]
+    (if (not= next-player player)
+      (throw (Exception. "Invalid Player")))
     (case (get-marker board position)
-      "" {:board (assoc-in board position player)
-          :state state}
+      ""  (update game :board assoc-in position player)
       nil (throw (Exception. "Out of bounds position"))
       (throw (Exception. "Already filled position")))))
-
-
-
 
 ;; pure logic
 (defn check-winner-for-position [board winning-position]
@@ -75,16 +71,22 @@
 (defn full-board? [board]
   (not (some #{""} (flatten board))))
 
+;; pure logic
+(defn next-player [current-player]
+  (if (= current-player "X") "O" "X"))
 
 ;; pure logic
 (defn update-game-state [game]
   (let [{:keys [board]} game]
     (if-let [winner (check-winner board winning-positions)]
-      (merge game {:state  :finished
-                   :winner winner})
+      {:board  board
+       :state  :finished
+       :winner winner}
       (if (full-board? board)
-        (merge game {:state :finished :winner "draw"})
-        game))))
+        {:board board
+         :state :finished
+         :winner "draw"}
+        (update game :next-player next-player)))))
 
 
 (defn update-board! [player position]

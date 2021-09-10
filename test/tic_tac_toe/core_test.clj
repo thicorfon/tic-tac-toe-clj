@@ -23,7 +23,8 @@
                  ["X" "X" "O"]])
 
 (def base-game {:board base-board
-                :state :ongoing})
+                :state :ongoing
+                :next-player "X"})
 
 (deftest get-marker-test
   (testing "Get marker in valid position"
@@ -49,17 +50,23 @@
            {:board [["X" "X" ""]
                     ["O" "X" "O"]
                     ["" "" ""]]
-            :state :ongoing})))
+            :state :ongoing
+            :next-player "X"})))
   (testing "Change already filled position of board throws exception"
     (is (thrown-with-msg? Exception #"Already filled position"
-                          (change-position base-game "O" [1 1]))))
+                          (change-position base-game "X" [1 1]))))
 
+  (testing "Change position with a not valid player throws exception"
+    (is (thrown-with-msg? Exception #"Invalid Player"
+                          (change-position base-game "O" [0 1])))
+    (is (thrown-with-msg? Exception #"Invalid Player"
+                          (change-position base-game "banana" [0 1]))))
 
   (testing "Changing out of bound position throws exception"
     (is (thrown-with-msg? Exception #"Out of bounds position"
                           (change-position base-game "X" [3 1])))
     (is (thrown-with-msg? Exception #"Out of bounds position"
-                          (change-position base-game "O" [1 3])))))
+                          (change-position base-game "X" [1 3])))))
 
 (deftest check-winner-for-position-test
   (testing "If the position has a winner, return the winner"
@@ -94,7 +101,7 @@
 (deftest update-game-state-test
   (testing "Board without winner and not full returns ongoing game"
     (is (= (update-game-state base-game)
-           base-game)))
+           (assoc base-game :next-player "O"))))
   (testing "Board with winner returns game with winner and status"
     (is (= (update-game-state {:board board-O-winner
                                :state :ongoing})
