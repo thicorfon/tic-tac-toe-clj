@@ -13,7 +13,7 @@
 (def new-game
   {:board new-board
    :state :ongoing
-   :new-player "X"})
+   :next-player "X"})
 
 (def winning-positions #{[[0 0] [0 1] [0 2]]
                          [[1 0] [1 1] [1 2]]
