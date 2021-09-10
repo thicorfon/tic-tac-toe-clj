@@ -88,8 +88,8 @@
 
 
 (defn update-board! [player position]
-  (swap! current-game change-position player position)
-  (swap! current-game update-game-state))
+  (swap! current-game #(-> (change-position % player position)
+                           (update-game-state))))
 
 
 (defn make-move! [context]
